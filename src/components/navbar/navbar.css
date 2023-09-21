@@ -1,0 +1,20 @@
+.header {
+    background-color: #FFF;
+    position: fixed;
+    color: black;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    display: flex;
+    column-gap: 1rem;
+}
