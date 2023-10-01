@@ -2,12 +2,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=PT+Sans+Caption&family=Poppins:wght@400;500;600&display=swap');
 
+ /* * {
+  border: 1px solid red;
+ } */
 :root {
 /* Font and typography */
 --body-font: 'PT Sans Caption', sans-serif;
 --title-color: #749BC2;
 --title-color-dark: #4682A9;
---text-color: black;
+--text-color: rgba(0,0,0,0.7);
 --body-color: #F6F4EB;
 --container-color: #fff;
 
@@ -100,7 +103,11 @@ img {
 .section__subtitle {
   display: block;
   font-size: var(--small-font-size);
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
+}
+
+.subheader {
+  padding-bottom: 4rem;
 }
 
 .section__title,
@@ -110,7 +117,7 @@ img {
 
 /* LAYOUT */
 .container {
-  max-width: 968px;
+  max-width: 960px;
   margin-left: auto;
   margin-right: auto;
 }
