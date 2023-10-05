@@ -1,0 +1,33 @@
+.portfolios__body {
+    display: grid;
+    grid-template-columns: repeat(2,300px);
+    justify-content: center;
+}
+
+.portfolios__content-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 15px;
+    gap: 1rem;
+}
+
+.portfolios__content-header {
+    height: 100%;
+    width: 100%;
+}
+
+.portfolios__content-footer {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(2,50%);
+
+}
+
+.portfolios__content-footer-box {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}

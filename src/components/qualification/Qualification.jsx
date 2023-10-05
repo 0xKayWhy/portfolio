@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./qualification.css";
+import { Experience, Education } from "./Data";
 
 export const Qualification = () => {
+  const [data, setData] = useState(Education);
+
   return (
     <section className="qualification section">
       <div className="qualification__container container">
@@ -11,33 +14,51 @@ export const Qualification = () => {
         </div>
         <div className="qualification__body">
           <div className="qualification__body__title">
-            <div>
+            <button
+              onClick={() => setData(Education)}
+              className="button button--flex"
+            >
               <i className="bx bxs-graduation bx-sm qualification__icon"></i>
               Education
-            </div>
-            <div>
+            </button>
+            <button
+              onClick={() => setData(Experience)}
+              className="button button--flex"
+            >
               <i className="bx bx-briefcase bx-sm qualification__icon"></i>
               Experience
-            </div>
+            </button>
           </div>
           <div className="qualification__footer">
-            <div className="qualification__content">
-              <h3 className="qualification__content__title">General Assembly</h3>
-              <div className="qualification__content__subtitle">
-                Software Engineering Bootcamp
+          {data.map((dt, index) => {
+            return (
+              <div className="qualification__footer__section" key={index}>
+                <div
+                  className={
+                    index % 2 == 0
+                      ? "qualification__content"
+                      : "qualification__content__right"
+                  }
+                >
+                  <h3 className="qualification__content__title">{dt.title}</h3>
+                  <div className="qualification__content__subtitle">
+                    {dt.subtitle}
+                  </div>
+                  <div>
+                    <span className="qualification__content_date">
+                      <i className="bx bx-calendar"></i>
+                      {dt.date}
+                    </span>
+                  </div>
+                </div>
+                <div className="qualification__divider">
+                  <span className="qualification__rounder"></span>
+                  <span className="qualification__line"></span>
+                </div>
               </div>
-              <div>
-                <span className="qualification__content_date">
-                  <i className="bx bx-calendar"></i>
-                  2023 April - July
-                </span>
-              </div>
-            </div>
-            <div className="qualification__divider">
-              <span className="qualification__rounder"></span>
-              <span className="qualification__line"></span>
-            </div>
-          </div>
+            );
+          })}
+        </div>
         </div>
       </div>
     </section>
