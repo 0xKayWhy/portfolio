@@ -1,0 +1,51 @@
+.contact__body {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contact__box-subtitle {
+    font-size: larger;
+    font-weight: var(--font-semi-bold);
+    color: #000;
+}
+
+
+.contact__email:hover
+.mail{
+    color: var(--title-color-dark);
+    transform: translateX(20px);
+    transition: all 0.5s ease;
+}
+
+.mail {
+    transition: all 0.5s ease;
+}
+
+.contact__whatsapp:hover
+.whatsapp{
+    color: var(--title-color-dark);
+    transform: translateX(20px);
+    transition: all 0.5s ease;
+}
+
+.whatsapp {
+    transition: all 0.5s ease;
+}
+
+.contact__email,
+.contact__whatsapp {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background-color: #fff;
+    padding: 2.5rem;
+    margin: 1rem;
+}
+
+.contact__box-span {
+    font-size: var(--small-font-size);
+    margin-bottom: var(--mb-1);
+    color: rgba(0, 0, 0, 0.5);
+}

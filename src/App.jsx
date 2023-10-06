@@ -6,6 +6,7 @@ import { Home } from './components/home/Home'
 import { Skills } from './components/skills/Skills'
 import { Qualification } from './components/qualification/Qualification'
 import { Portfolios } from './components/portfolios/Portfolios'
+import { Contact } from './components/contact/Contact'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
     <Skills/>
     <Qualification/>
     <Portfolios/>
+    <Contact/>
 
     </>
   )
