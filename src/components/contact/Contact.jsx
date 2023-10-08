@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from '@emailjs/browser';
 import "./contact.css";
 
 export const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_9mjnj9l",
+      "template_of3e71i",
+      form.current,
+      "TvN1pYn9kCzG56Ir-"
+    );
+    e.target.reset();
+  };
+
   return (
     <section className="contact section" id="contact">
       <div className="contact__container container">
@@ -25,13 +40,48 @@ export const Contact = () => {
               target="_blank"
             >
               <div className="contact__whatsapp">
-              <i className="bx bxl-whatsapp bx-md whatsapp"></i>
+                <i className="bx bxl-whatsapp bx-md whatsapp"></i>
                 <div className="contact__box-subtitle">Whatsapp</div>
                 <div className="contact__box-span">+6016-307 9918</div>
               </div>
             </a>
           </div>
-          <div className="contact__textarea">Write me your idea</div>
+          <div className="contact__form">
+            <div className="contact__box-title">Write me your idea</div>
+            <form ref={form} onSubmit={sendEmail}>
+              <div className="contact__form-box">
+                <label className="contact__form-label">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  className="contact__form-input"
+                  placeholder="Insert your name"
+                />
+              </div>
+
+              <div className="contact__form-box">
+                <label className="contact__form-label">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="contact__form-input"
+                  placeholder="Insert your email"
+                />
+              </div>
+
+              <div className="contact__form-box contact__form-area">
+                <label className="contact__form-label">Idea</label>
+                <textarea
+                  name="idea"
+                  className="contact__form-input"
+                  placeholder="Write me your idea"
+                />
+              </div>
+              <button className="button button--flex">Send
+              <i className='bx bxs-send bx-sm button__icon'></i>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>

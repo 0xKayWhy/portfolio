@@ -6,7 +6,7 @@ export const Qualification = () => {
   const [data, setData] = useState(Education);
 
   return (
-    <section className="qualification section">
+    <section className="qualification section" id="qualification">
       <div className="qualification__container container">
         <div className="qualification__header subheader">
           <h2 className="section__title">Qualification</h2>

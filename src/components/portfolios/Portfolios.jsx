@@ -4,7 +4,7 @@ import { Data } from './Data'
 
 export const Portfolios = () => {
   return (
-    <section className="portfolios section">
+    <section className="portfolios section" id='portfolio'>
         <div className="portfolios__container container">
             <div className="qualification__header subheader">
             <h2 className="section__title">Portfolio</h2>
