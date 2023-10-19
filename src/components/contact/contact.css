@@ -90,6 +90,10 @@
     height: 11rem;
 }
 
+.contact__form-area-time {
+    margin-bottom: var(--mb-1);
+}
+
 .contact__form-area textarea {
     resize: none;
 }
@@ -97,4 +101,30 @@
 .button__icon {
     height: 24px;
     width: 24px;
+}
+
+.contact__time {
+    text-align: left;
+    color: red;
+    font-size: var(--smaller-font-size);
+    margin-bottom: var(--mb-1);
+    margin-left: 0.5rem;
+    line-height: 1rem;
+}
+
+.contact__send {
+    margin-top: 1rem;
+}
+
+@media screen and (max-width:768px) {
+    .contact__body {
+        grid-template-columns: repeat(1,1fr);
+        gap: 1.5rem;
+    } 
+}
+
+@media screen and (max-width:375px) {
+    .contact__form {
+        width: 300px;
+    }
 }

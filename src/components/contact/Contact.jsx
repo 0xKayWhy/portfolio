@@ -1,20 +1,33 @@
-import React, { useRef } from "react";
+import React, { useRef, useState} from "react";
 import emailjs from '@emailjs/browser';
 import "./contact.css";
+import { Time } from "./Time";
 
 export const Contact = () => {
   const form = useRef();
+  const timer = 60000;
+  const [avail, setAvail] = useState(localStorage.getItem('availablity') || "true")
+  const [remainingTime, setRemainingTime] = useState(localStorage.getItem('countdown') || timer);
 
   const sendEmail = (e) => {
     e.preventDefault();
-
-    emailjs.sendForm(
-      "service_9mjnj9l",
-      "template_of3e71i",
-      form.current,
-      "TvN1pYn9kCzG56Ir-"
-    );
-    e.target.reset();
+    if(avail === "true") {
+      emailjs.sendForm(
+        "service_9mjnj9l",
+        "template_of3e71i",
+        form.current,
+        "TvN1pYn9kCzG56Ir-"
+      );
+      e.target.reset();
+      localStorage.setItem('availablity','false')
+      localStorage.setItem('countdown',timer)
+      setRemainingTime(timer)
+      setAvail("false")
+      setTimeout(()=> {
+        localStorage.setItem('availablity','true')
+        setAvail("true")
+      },timer)
+    } 
   };
 
   return (
@@ -69,15 +82,16 @@ export const Contact = () => {
                 />
               </div>
 
-              <div className="contact__form-box contact__form-area">
+              <div className={avail==="true" ? "contact__form-box contact__form-area" : "contact__form-box contact__form-area contact__form-area-time"}>
                 <label className="contact__form-label">Idea</label>
                 <textarea
-                  name="idea"
+                  name="project"
                   className="contact__form-input"
                   placeholder="Write me your idea"
                 />
               </div>
-              <button className="button button--flex">Send
+              {avail === "false" && <Time setRemainingTime ={setRemainingTime} remainingTime={remainingTime} setAvail={setAvail} timer={timer} />}
+              <button className={avail === "true" ? "button button--flex contact__send" : "button button--flex"} >Send
               <i className='bx bxs-send bx-sm button__icon'></i>
               </button>
             </form>

@@ -17,15 +17,15 @@ export const Portfolios = () => {
                     <a href={dt.url} className="portfolios__content-url" target="_blank">
                     <img src={dt.image} className="portfolios__content-image"/>
                     <div className="overlay">
-                    <i className='bx bx-cast bx-md'></i>
+                    <i className='bx bx-add-to-queue bx-md'></i>
                     </div>
                     </a>
                     <div className="portfolios__content-body">{dt.description}</div>
                     <div className="portfolios__content-footer">
-                        <a href={dt.url} className='portfolios__content-footer-box portfolios__content-footer-box-left'>
+                        <a href={dt.url} className='portfolios__content-footer-box portfolios__content-footer-box-left' target='_blank'>
                         <i className='bx bx-world bx-sm icon'></i>
                             Website</a>
-                        <a href={dt.github} className='portfolios__content-footer-box portfolios__content-footer-box-right'>
+                        <a href={dt.github} className='portfolios__content-footer-box portfolios__content-footer-box-right' target='_blank'>
                         <i className='bx bxl-github bx-sm icon'></i>
                         Github</a>
                     </div>

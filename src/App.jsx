@@ -8,6 +8,7 @@ import { Qualification } from './components/qualification/Qualification'
 import { Portfolios } from './components/portfolios/Portfolios'
 import { Contact } from './components/contact/Contact'
 import { Footer } from './components/footer/Footer'
+import { Scroll } from './components/scroll/Scroll'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
     <Portfolios/>
     <Contact/>
     <Footer/>
+    <Scroll/>
     </>
   )
 }

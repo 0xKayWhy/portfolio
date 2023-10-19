@@ -2,6 +2,7 @@
     background-color: var(--container-color);
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     text-align: center;
+    padding-bottom: 5rem;
 }
 
 .footer__container {
@@ -24,4 +25,5 @@
 
 .footer__copyright {
     font-size: var(--small-font-size);
+
 }

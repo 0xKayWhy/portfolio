@@ -46,7 +46,7 @@ export const Qualification = () => {
                   </div>
                   <div>
                     <span className="qualification__content_date">
-                      <i className="bx bx-calendar"></i>
+                      <i className="bx bx-calendar calendar__icon"></i>
                       {dt.date}
                     </span>
                   </div>

@@ -1,13 +1,14 @@
 .portfolios__body {
     display: grid;
-    grid-template-columns: repeat(2,350px);
+    grid-template-columns: repeat(2,380px);
     justify-content: center;
+    gap: 1rem;
 }
 
 .portfolios__content-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.2);
     background-color: #fff;
     padding: 2rem;
     border-radius: 15px;
@@ -24,8 +25,6 @@
     align-items: center;
     justify-content: center;
 }
-
-
 
 .portfolios__content-image {
     display: block;
@@ -65,6 +64,7 @@
 }
 
 .portfolios__content-footer {
+    margin-top: auto;
     display: grid;
     grid-template-columns: repeat(2,50%);
 }
@@ -93,4 +93,10 @@
 
 .icon {
     margin-right: 10px;
+}
+
+@media screen and (max-width:768px) {
+    .portfolios__body {
+        grid-template-columns: repeat(1,350px);
+    }
 }
