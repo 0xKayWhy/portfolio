@@ -7,7 +7,7 @@ const Education =  [
     },
     {
         title : "Crypto Whiteboard",
-        subtitle : "Web3 Bootcamp (Solidity)",
+        subtitle : "Blockchain Bootcamp (Solidity)",
         date : "Jan - March 2023"
     },
     {

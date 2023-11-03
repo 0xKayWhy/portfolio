@@ -20,19 +20,19 @@ export const About = () => {
               <div className="about__box">
                 <i className="bx bx-briefcase bx-sm"></i>
                 <div>Experience</div>
-                <span>8 Years Working</span>
+                <span>6 Years Accounting</span>
               </div>
               <div className="about__box">
               <i className='bx bx-file bx-sm'></i>
                 <div></div>
                 <div>Completed</div>
-                <span>4 Projects</span>
+                <span>2 Projects</span>
               </div>
               <div className="about__box">
-              <i className='bx bx-support bx-sm' ></i>
+              <i className='bx bx-code bx-sm' ></i>
                 <div></div>
-                <div>Support</div>
-                <span>Online 24/7</span>
+                <div>Coding</div>
+                <span>3 months bootcamp</span>
               </div>
             </div>
             <div className="about__box__description">
