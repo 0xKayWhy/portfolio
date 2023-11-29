@@ -15,7 +15,7 @@ export const Data = [
     name: "Arcade Race",
     description:
       "Experience the thrill of Arcade Car Race! This game is actually built using Document Object Model (DOM). Use only your left and right arrow keys to navigate through traffic and avoid collisions.",
-    url: "https://0xkaywhy.github.io/main/Project/Project1/landing.html",
-    github: "https://github.com/0xKayWhy/main/tree/main/Project",
+    url: "https://0xkaywhy.github.io/arcadeRace/",
+    github: "https://github.com/0xKayWhy/arcadeRace",
   }
 ];
