@@ -18,7 +18,7 @@ export const Navbar = () => {
   return (
     <header className="header">
         <nav className="nav container">
-            <a href="/#home">KYC</a>
+            <div>KYC</div>
             <div className={showMenu ? "nav__menu show-menu" : "nav__menu"}>
             <ul className='nav__list'>
                 <li><a href="#home" onClick={() => setSelected("home")} className={selected == "home" ? 'active__link' : "default__link"}><i className='bx bx-home bx-sm nav__icon'></i>Home</a></li>
