@@ -26,7 +26,7 @@ export const About = () => {
               <i className='bx bx-file bx-sm'></i>
                 <div></div>
                 <div>Completed</div>
-                <span>2 Projects</span>
+                <span>3 Projects</span>
               </div>
               <div className="about__box">
               <i className='bx bx-code bx-sm' ></i>

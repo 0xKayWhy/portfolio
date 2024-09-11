@@ -19,6 +19,10 @@ const Education =  [
 
 const Experience = [
     {
+        title : "Freelancer",
+        date : "Jun 2022 - present"
+    },
+    {
         title : "Account Supervisor",
         subtitle : "JW Quality Services",
         date : "Sep 2021 - Jun 2022"
