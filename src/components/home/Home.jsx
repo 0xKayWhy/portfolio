@@ -57,9 +57,9 @@ export const Home = () => {
                   ></path>
                 </svg>
           </h1>
-          <h2 className="home__subtitle">Fullstack developer</h2>
+          <h2 className="home__subtitle">Software developer</h2>
           <span className="home__description">
-            I'm fullstack software engineering based in Malaysia, and I'm very
+            I'm a software engineer based in Malaysia, and I'm very
             passionate and dedicated to my work
           </span>
           <a href="#contact" className="button button--flex home__button">Say Hello</a>

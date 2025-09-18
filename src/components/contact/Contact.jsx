@@ -1,33 +1,85 @@
-import React, { useRef, useState} from "react";
-import emailjs from '@emailjs/browser';
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./contact.css";
 import { Time } from "./Time";
 
 export const Contact = () => {
   const form = useRef();
   const timer = 60000;
-  const [avail, setAvail] = useState(localStorage.getItem('availablity') || "true")
-  const [remainingTime, setRemainingTime] = useState(localStorage.getItem('countdown') || timer);
+  const [avail, setAvail] = useState(
+    localStorage.getItem("availablity") || "true"
+  );
+  const [remainingTime, setRemainingTime] = useState(
+    localStorage.getItem("countdown") || timer
+  );
+  const [showTimer, setShowTimer] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
-    if(avail === "true") {
-      emailjs.sendForm(
-        "service_9mjnj9l",
-        "template_of3e71i",
-        form.current,
-        "TvN1pYn9kCzG56Ir-"
-      );
+    if (avail === "true") {
+      emailjs
+        .sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          form.current,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        )
+        .then((result) => {
+          console.log("Email sent successfully:", result.text);
+          setEmailSent(true);
+          setFadeOut(false);
+
+          // Start fade out after 4 seconds
+          setTimeout(() => {
+            setFadeOut(true);
+          }, 4000);
+
+          // Hide completely after fade out animation completes
+          setTimeout(() => {
+            setEmailSent(false);
+            setFadeOut(false);
+          }, 4300);
+        })
+        .catch((error) => {
+          console.error("Email sending failed:", error.text);
+          alert("Failed to send email. Please try again.");
+        });
+
       e.target.reset();
-      localStorage.setItem('availablity','false')
-      localStorage.setItem('countdown',timer)
-      setRemainingTime(timer)
-      setAvail("false")
-      setTimeout(()=> {
-        localStorage.setItem('availablity','true')
-        setAvail("true")
-      },timer)
-    } 
+      localStorage.setItem("availablity", "false");
+      localStorage.setItem("countdown", timer);
+      setRemainingTime(timer);
+      setAvail("false");
+      setShowTimer(false);
+
+      const countdownInterval = setInterval(() => {
+        setRemainingTime((prevTime) => {
+          const newTime = prevTime - 1000;
+          localStorage.setItem("countdown", newTime);
+          if (newTime <= 0) {
+            clearInterval(countdownInterval);
+            localStorage.setItem("availablity", "true");
+            setAvail("true");
+            setShowTimer(false);
+            return timer;
+          }
+          return newTime;
+        });
+      }, 1000);
+
+      // Clean up after timer expires
+      setTimeout(() => {
+        clearInterval(countdownInterval);
+        localStorage.setItem("availablity", "true");
+        setAvail("true");
+        setShowTimer(false);
+      }, timer);
+    } else {
+      // User tried to send again during cooldown - now show the timer
+      setShowTimer(true);
+    }
   };
 
   return (
@@ -82,7 +134,13 @@ export const Contact = () => {
                 />
               </div>
 
-              <div className={avail==="true" ? "contact__form-box contact__form-area" : "contact__form-box contact__form-area contact__form-area-time"}>
+              <div
+                className={
+                  avail === "true"
+                    ? "contact__form-box contact__form-area"
+                    : "contact__form-box contact__form-area contact__form-area-time"
+                }
+              >
                 <label className="contact__form-label">Idea</label>
                 <textarea
                   name="project"
@@ -90,9 +148,30 @@ export const Contact = () => {
                   placeholder="Write me your idea"
                 />
               </div>
-              {avail === "false" && <Time setRemainingTime ={setRemainingTime} remainingTime={remainingTime} setAvail={setAvail} timer={timer} />}
-              <button className={avail === "true" ? "button button--flex contact__send" : "button button--flex"} >Send
-              <i className='bx bxs-send bx-sm button__icon'></i>
+              {showTimer && avail === "false" && (
+                <Time remainingTime={remainingTime} />
+              )}
+              {emailSent && (
+                <div
+                  className={`contact__success-message ${
+                    fadeOut ? "fade-out" : ""
+                  }`}
+                >
+                  <i className="bx bx-check-circle"></i>
+                  Email sent successfully! Thank you for reaching out.
+                </div>
+              )}
+              <button
+                type="submit"
+                disabled={showTimer}
+                className={
+                  avail === "true"
+                    ? "button button--flex contact__send"
+                    : "button button--flex"
+                }
+              >
+                Send
+                <i className="bx bxs-send bx-sm button__icon"></i>
               </button>
             </form>
           </div>

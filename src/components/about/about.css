@@ -59,6 +59,14 @@
     line-height: 1.5rem;
 }
 
+.about__box__description p {
+    margin-bottom: 1.5rem;
+}
+
+.about__box__description p:last-child {
+    margin-bottom: 0;
+}
+
 .about__box__button {
     margin: 2rem;
 }

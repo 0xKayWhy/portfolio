@@ -1,25 +1,6 @@
-import React, { useEffect } from 'react';
+import React from "react";
 
-export const Time = ({ setRemainingTime,remainingTime,setAvail }) => {
-
-  useEffect(() => {
-    if (remainingTime > 0) {
-      const interval = setInterval(() => {
-        setRemainingTime((prevRemainingTime) => {
-          const newRemainingTime = prevRemainingTime - 1000;
-          localStorage.setItem('countdown', newRemainingTime);
-          return newRemainingTime;
-        });
-      }, 1000);
-
-      // Clear the interval when the component unmounts or when the timer reaches zero
-      return () => {
-        clearInterval(interval);
-      };
-    }
-
-  }, [remainingTime,setAvail]);
-
+export const Time = ({ remainingTime }) => {
   const minutes = Math.floor(remainingTime / 60000);
   const seconds = Math.floor((remainingTime % 60000) / 1000);
 
