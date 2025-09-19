@@ -19,6 +19,7 @@ const Education = [
 const Experience = [
   {
     title: "Software Developer",
+    subtitle: "Wito Technology S.B.",
     date: "Sept 2024 - Present"
   },
   {

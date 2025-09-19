@@ -14,11 +14,11 @@ export const Skills = () => {
           {data.map((dt) => {
             return (
               <div className="skills__box" key={dt.id}>
-                <div className="skills__box__title" >{dt.title}</div>
+                <div className="skills__box__title">{dt.title}</div>
                 <div className="skills__box__subtitle grid">
                   {dt.skills.map((d, index) => {
                     return (
-                      <div  key={index}>
+                      <div key={index}>
                         <i className="bx bx-code-block skills__icon"></i>
                         {d}
                       </div>
