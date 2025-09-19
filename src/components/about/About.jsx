@@ -38,7 +38,7 @@ export const About = () => {
             <div className="about__box__description">
               <p>
                 Hi, I’m KY — a Software Developer based in Malaysia. I have 1
-                year of professional experience in full-stack development,
+                year of professional experience in software development,
                 working with{" "}
                 <strong>
                   React.js, TypeScript, Ant Design, NestJS, and MongoDB
