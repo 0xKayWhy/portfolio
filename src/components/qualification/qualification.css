@@ -100,4 +100,12 @@
     .qualification__content__title {
         font-size: var(--h3-font-size);
     }
+
+    
+    @media screen and (max-width:375px) {
+    .qualification__icon {
+     display: none;
+    }
+
+}
 }

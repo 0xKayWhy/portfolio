@@ -36,6 +36,12 @@
     .skills__box__subtitle {
         grid-template-columns: repeat(2,110px);
     }
-    
 
+}
+
+@media screen and (max-width:375px) {
+
+    .skills__box {
+        padding: 1rem;
+    }
 }
